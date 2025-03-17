@@ -39,6 +39,7 @@ app.use("/nutrition-goals", nutritionGoalsRouter);
 app.use("/reminders", remindersRouter);
 app.use("/weight-tracking", weightTrackingRouter);
 
-app.listen(8000, () => {
-  console.log('The express app is ready!');
-});
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+})
