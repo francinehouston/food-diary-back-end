@@ -93,10 +93,7 @@ res.status(200).json(updatedEntry);
             return res.status(404).json({ error: "Entry not found" });
         }
 
-        // // Ensure the user owns the entry before deleting
-        // if (!entry.userId.equals(req.user._id)) {
-        //     return res.status(403).json({ error: "You're not allowed to delete this entry!" });
-        // }
+    
 
         await FoodDiary.findByIdAndDelete(id);
         res.status(200).json({ message: "Entry deleted successfully" });
