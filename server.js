@@ -8,7 +8,7 @@ const logger = require('morgan');
 const axios = require('axios');
 
 
-app.use(cors({ origin: true }))
+app.use(cors())
 app.use(express.json());
 app.use(logger('dev'));
 
