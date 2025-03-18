@@ -7,18 +7,28 @@ const mongoose = require('mongoose');
 const logger = require('morgan');
 const axios = require('axios');
 
-
+// Enable CORS for all methods
+app.use(function (request, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', '*');
+  //intercept the OPTIONS call so we don't double up on calls to the integration
+  if ('OPTIONS' === request.method) {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 app.use(cors({origin: "https://food-diary-api-app.netlify.app",
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type, Authorization",
   credentials: true // If using cookies/auth headers
 }));
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Allow common HTTP methods
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Allow common HTTP methods
+//   next();
+// });
 // app.use(({origin:true, credentials:true}));
 app.use(express.json());
 app.use(logger('dev'));
