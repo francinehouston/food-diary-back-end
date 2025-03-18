@@ -8,11 +8,12 @@ const logger = require('morgan');
 const axios = require('axios');
 
 
-app.use(cors({origin: "https://food-diary-api-app.netlify.app",
-  methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true // If using cookies/auth headers
-}));
+// app.use(cors({origin: "https://food-diary-api-app.netlify.app",
+//   methods: "GET,POST,PUT,DELETE,OPTIONS",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true // If using cookies/auth headers
+// }));
+app.use(({origin:true, credentials:true}));
 app.use(express.json());
 app.use(logger('dev'));
 
