@@ -2,7 +2,7 @@
   "name": "food-diary-back-end",
   "version": "1.0.0",
   "main": "server.js",
-  "proxy": "https://food-diary-app-7ffea840a82e.herokuapp.com",
+ 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",

@@ -8,7 +8,6 @@ const logger = require('morgan');
 const axios = require('axios');
 
 app.use(cors());
-
 app.use(express.json());
 app.use(logger('dev'));
 
