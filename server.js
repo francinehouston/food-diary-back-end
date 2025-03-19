@@ -18,11 +18,14 @@ app.use(function (request, res, next) {
     next();
   }
 });
-app.use(cors({origin: "https://food-diary-api-app.netlify.app",
-  methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true // If using cookies/auth headers
-}));
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.options("*", cors()); // Allow preflight requests globally
+
+// app.use(cors({origin: "https://food-diary-api-app.netlify.app",
+//   methods: "GET,POST,PUT,DELETE,OPTIONS",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true // If using cookies/auth headers
+// }));
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
