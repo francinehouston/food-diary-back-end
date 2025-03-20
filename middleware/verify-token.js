@@ -2,7 +2,7 @@
 
 // We'll need to import jwt to use the verify method
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User');
 
 function verifyToken(req, res, next) {
   console.log("req.headers.authorization", req.headers.authorization)
